@@ -1,17 +1,117 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="x-ua-compatible" content="ie=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="css/main.css" />
-	<title>This is my webpage</title>
-
-</head>
-<body>
-	<script>
-		// Your JavaScript goes here!
-		console.log("Hello, World!")
-	</script>
-</body>
+    <head>
+        <title>Christina's Amazing Website</title>
+      <style>
+        body {
+          background: rgb(125, 198, 205);
+          color: rgb(45, 45, 45);
+          padding: 10px;
+          font-family: arial;
+        }
+        #all-contents {
+          max-width: 800px;
+          margin: auto;
+        }
+        
+        /* navigation menu */
+        nav {
+          background: rgb(239, 80, 41);
+          margin: 0 auto;
+          display: flex;
+          padding: 10px;
+          border-radius: 25% 10%;
+        }
+        nav h1 {
+          display: flex;
+          align-items: center;
+          color: white;
+          flex: 1;
+          margin: 0;
+        }
+        nav ul {
+          list-style-image: none;
+        }
+        nav li {
+          display: inline-block;
+          padding: 0 10px;
+        }
+        nav a {
+          text-decoration: none;
+          color: #fff;
+        }
+        
+        /* main container area beneath menu */
+        main {
+          background: rgb(245, 238, 219);
+          display: flex;
+        }
+        .sidebar {
+          margin-right: 25px;
+          padding: 10px;
+        }
+        .sidebar img {
+          width: 200px;
+        }
+        .content {
+          flex: 1;
+          padding: 15px;
+        }
+        h2, h3 {
+          margin: 0px;
+        }
+        .sidebar {
+          margin-right: 25px;
+          padding: 10px;
+        }
+        nav {
+          background: rgb(239, 80, 41);
+          margin: 0 auto;
+          margin-bottom: 20px;
+          display: flex;
+          padding: 10px;
+        }
+      </style>
+    </head>
+    
+    <body>
+      
+      <!-- YOUR HTML TAGS GO HERE  -->
+      <div id="all-contents"> 
+        <div class="sidebar"></div>
+        <nav>
+          <h1>Christina's Website!</h1>
+          <ul>
+            <li>
+              <a href="index.html"> Home </a>
+            </li>
+            <li>
+              <a href="portfolio.html"> Portfolio </a>
+            </li>
+          </ul>
+        </nav>
+        
+        <main>
+          <div class="sidebar">
+            <img src="https://avatars.githubusercontent.com/u/91998627?v=4">
+          </div>
+          
+          <div class="content">
+            <h2>Christina </h2>
+            <p>Student at Operation Spark</p>
+  
+            <div id="interests">
+              <h3>Interests</h3>
+              <ul>
+                <li>Coding</li>
+                <li>Sleeping</li>
+                <li>Eating</li>
+              </ul>
+            </div>
+            
+          </div>
+        </main>
+      </div>
+      
+    </body>
 </html>
