@@ -10,13 +10,24 @@
  *  c. AND for the multiples of five print “Buzz”.
  *  d. FINALLY, for numbers which are multiples of both three and five print “FizzBuzz”.
 */
-function fizzBuzz() {
-    // YOUR CODE GOES BELOW HERE //
-
-
-
-    // YOUR CODE GOES ABOVE HERE //
-}
+function fizzBuzz(number) {
+    //prints the numbers from 1 to 100
+    
+    for(var i = 100; i >= number; i++){
+      ////multiples of both print “FizzBuzz”
+      if (number % 3 === 0 && number % 5 === 0){
+        return "FizzBuzz"; 
+        //multiples of five print “Buzz”
+      }else if (number % 5 === 0){
+        return 'Buzz'; 
+        ////multiples of three print “Fizz
+      }else if (number % 3 === 0){
+        return 'Fizz'; 
+      }
+      
+     }
+    
+    }
 
 
 
