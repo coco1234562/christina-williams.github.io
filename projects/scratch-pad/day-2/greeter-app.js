@@ -35,23 +35,23 @@
 
 function greeter(hour) {
 
-    // // hour is 0-11 Good Morning!
-    if (hour > 0 && hour < 11){
-      return "Good Morning!"; 
+  // // hour is 0-11 Good Morning!
+  if (hour >= 0 && hour <= 11){
+    return "Good Morning!"; 
+    
+    // hour is 12-16 Good AfterNoon
+    } else if (hour >= 12 && hour <= 16){
+      return 'Good Afternoon!'; 
       
-      // hour is 12-16 Good AfterNoon
-      } else if (hour >= 12 && hour <= 16){
-        return 'Good Afternoon!'; 
-        
-        // hour is 17-21 Good Evening!
-      } else if (hour >= 17 && hour <= 21){
-        return 'Good Evening!';
-        
-        // hour is 22-24 Good Night!
-      } else if (hour >= 22 && hour <= 24){
-        return 'Good Night!'; 
-      }
+      // hour is 17-21 Good Evening!
+    } else if (hour >= 17 && hour <= 21){
+      return 'Good Evening!';
+      
+      // hour is 22-24 Good Night!
+    } else if (hour >= 22 && hour <= 24){
+      return 'Good Night!'; 
     }
+  }
     
 /*
  * To test our greeter when developing, we need to fake some input data, ie, 
@@ -64,7 +64,8 @@ function greeter(hour) {
  * var hour = today.getHours();
  */
 
-greeter(11);
+
+console.log(greeter(11));
 
 
 
