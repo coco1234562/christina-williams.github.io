@@ -22,13 +22,22 @@
  *  c. you'll wanna make use of the push() method of Array.
  */
 function range(start, end) {
-    // YOUR CODE GOES BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE GOES ABOVE HERE //
-}
+    const result = []; // Step 1: Create an empty array
+  
+    // Step 2: Determine the direction of the range
+    const increment = start <= end ? 1 : -1;
+  
+    // Step 3: Use a loop to iterate over the range
+    for (let i = start; i !== end + increment; i += increment) {
+      // Step 4: Add each number to the array
+      result.push(i);
+    }
+  
+    return result; // Step 5: Return the array
+  }
+  
+  
+  
 
 
 

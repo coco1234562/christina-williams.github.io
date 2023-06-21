@@ -12,64 +12,82 @@
  * base.
  */
 function createGreaterThanFilter(base) {
-    return function(value) {
-      //check if string OR number 
-      if (typeof base === 'string' || typeof base === 'number') {
-        //given value is greater than the base
-        return value > base;
-      } else {
-        throw new Error('NaN.');
-      }
-    };
-  }
-  
+  return function(value) {
+    //check if string OR number 
+    if (typeof base === 'string' || typeof base === 'number') {
+      //given value is greater than the base
+      return value > base;
+    } else {
+      throw new Error('NaN.');
+    }
+  };
+}
+
+
+
+
+
+
 
 /** 
  * Given an input base to test against, which could be a String or Number, 
  * return a Function that tests whether a given value is less than the 
  * base.
  */
+ 
 function createLessThanFilter(base) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+
+  return function(value){
+    //check if string OR number 
+    if(typeof base === 'string' || typeof base === 'number'){
+      //test if given value is LESS than the base 
+      return value < base; 
+    }else {
+      throw new Error('NaN.');
+    }
+  }
+
 }
+
+
+
 
 /** 
  * Given a startsWith character, which will be a single character, return a 
  * Function that tests whether a given String starts with the startsWith 
  * character.
  */
+ 
 function createStartsWithFilter(startsWith) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
-}
+    return function(value) {
+      return value.startsWith(startsWith);
+    };
+  }
+
+
 
 /** 
  * Given a endsWith character, which will be a single character, return a 
  * Function that tests whether a given String ends with the endsWith 
  * character.
  */
-function createLessThanFilter(base) {
-
-    return function(value){
-      //check if string OR number 
-      if(typeof base === 'string' || typeof base === 'number'){
-        //test if given value is LESS than the base 
-        return value < base; 
-      }else {
-        throw new Error('NaN.');
-      }
-    }
-  
+ 
+function createEndsWithFilter(endsWith) {
+    return function(string) {
+      return string.endsWith(endsWith);
+    };
   }
+  
+  function createEndsWithFilter(endsWith) {
+    return function(string) {
+      return string.endsWith(endsWith);
+    };
+  }
+  
+
+
+
+
 
 /** 
  * Given an Array of Strings and a Function designed to modify a String, 
@@ -78,20 +96,33 @@ function createLessThanFilter(base) {
  * TIP: You need to loop over the Strings, right? We need to pass each String to 
  * the modify Function, but we need to collect the results into some collection.
  */
+ 
+replace(pattern, replacement)
+ 
+string.replace(searchValue, replaceValue)
+ 
 function modifyStrings(strings, modify) {
   
-    var modifiedStrings = []; // Create an empty array to store the modified strings
+  var modifiedStrings = []; // Create an empty array to store the modified strings
+  
+  for (let i = 0; i < strings.length; i++) {
     
-    for (let i = 0; i < strings.length; i++) {
-      
-      var modifiedString = modify(strings[i]); // Apply the modify function to the current string
-      
-      modifiedStrings.push(modifiedString); // Add the modified string to the collection
-    }
+    var modifiedString = modify(strings[i]); // Apply the modify function to the current string
     
-    return modifiedStrings; // Return the collection of modified strings
+    modifiedStrings.push(modifiedString); // Add the modified string to the collection
   }
   
+  return modifiedStrings; // Return the collection of modified strings
+}
+
+
+
+
+
+
+
+
+
 
 /** 
  * Given an Array of Strings and a Function designed to test the String in some 
@@ -102,24 +133,30 @@ function modifyStrings(strings, modify) {
  * 
  * TIP: You need to loop over the Strings, right? And pass them to the test?
  */
+ 
+ 
 function allStringsPass(strings, test) {
   
-    for (var i = 0; i < strings.length; i++) {
-      
-      if (!test(strings[i])) {
-        
-        return false; // Return false if any string fails the test
-      }
-    }
+  for (var i = 0; i < strings.length; i++) {
     
-    return true; // Return true if all strings pass the test
+    if (!test(strings[i])) {
+      
+      return false; // Return false if any string fails the test
+    }
   }
-
-
-
-
-
   
+  return true; // Return true if all strings pass the test
+}
+
+
+
+
+
+
+
+
+
+
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
     (typeof process.versions.node !== 'undefined')) {
