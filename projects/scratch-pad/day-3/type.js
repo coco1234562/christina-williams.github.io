@@ -13,13 +13,10 @@
  * work?
  */
 function isArray(value) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
-}
+  
+    return Array.isArray(value); 
+  
+  }
 
 /** 
  * Given an input value, return true if the value is an Object intended as a 
@@ -30,13 +27,11 @@ function isArray(value) {
  * with typeof.
  */
 function isObject(value) {
-    // YOUR CODE BELOW HERE //
+  
+    return typeof value === 'object' && value !== null && !
     
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
-}
+       Array.isArray(value)  
+   }
 
 /** 
  * Given an input value, return true if is either an Array or an an Object 
@@ -45,13 +40,8 @@ function isObject(value) {
  * TIP: Similar to isObject, but we must return true if the value is an Array.
  */
 function isCollection(value) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
-}
+    return Array.isArray(value) || (typeof value === 'object' && value !== null);
+  }
 
 /**
  * Given an input value, return the type of the value as a String
@@ -73,12 +63,31 @@ function isCollection(value) {
  *    typeOf([1,2,3]) -> "array"
  */ 
 function typeOf(value) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+    type = typeof value;
+
+    if (type === "object") {
+        if (value === null) {
+            return "null";
+        } else if (Array.isArray(value)) {
+            return "array";
+        } else if (value instanceof Date) {
+            return "date";
+        } else {
+            return "object";
+        }
+    } else {
+        if (type === "undefined") {
+            return "undefined";
+        } else if (type === "number") {
+            return "number";
+        } else if (type === "boolean") {
+            return "boolean";
+        } else if (type === "function") {
+            return "function";
+        } else {
+            return "string";
+        }
+    }
 }
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
