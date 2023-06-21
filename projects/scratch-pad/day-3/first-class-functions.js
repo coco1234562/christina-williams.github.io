@@ -12,13 +12,17 @@
  * base.
  */
 function createGreaterThanFilter(base) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
-}
+    return function(value) {
+      //check if string OR number 
+      if (typeof base === 'string' || typeof base === 'number') {
+        //given value is greater than the base
+        return value > base;
+      } else {
+        throw new Error('NaN.');
+      }
+    };
+  }
+  
 
 /** 
  * Given an input base to test against, which could be a String or Number, 
@@ -53,14 +57,19 @@ function createStartsWithFilter(startsWith) {
  * Function that tests whether a given String ends with the endsWith 
  * character.
  */
-function createEndsWithFilter(endsWith) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
-}
+function createLessThanFilter(base) {
+
+    return function(value){
+      //check if string OR number 
+      if(typeof base === 'string' || typeof base === 'number'){
+        //test if given value is LESS than the base 
+        return value < base; 
+      }else {
+        throw new Error('NaN.');
+      }
+    }
+  
+  }
 
 /** 
  * Given an Array of Strings and a Function designed to modify a String, 
@@ -70,13 +79,19 @@ function createEndsWithFilter(endsWith) {
  * the modify Function, but we need to collect the results into some collection.
  */
 function modifyStrings(strings, modify) {
-    // YOUR CODE BELOW HERE //
+  
+    var modifiedStrings = []; // Create an empty array to store the modified strings
     
+    for (let i = 0; i < strings.length; i++) {
+      
+      var modifiedString = modify(strings[i]); // Apply the modify function to the current string
+      
+      modifiedStrings.push(modifiedString); // Add the modified string to the collection
+    }
     
-    
-    
-    // YOUR CODE ABOVE HERE //
-}
+    return modifiedStrings; // Return the collection of modified strings
+  }
+  
 
 /** 
  * Given an Array of Strings and a Function designed to test the String in some 
@@ -88,14 +103,23 @@ function modifyStrings(strings, modify) {
  * TIP: You need to loop over the Strings, right? And pass them to the test?
  */
 function allStringsPass(strings, test) {
-    // YOUR CODE BELOW HERE //
+  
+    for (var i = 0; i < strings.length; i++) {
+      
+      if (!test(strings[i])) {
+        
+        return false; // Return false if any string fails the test
+      }
+    }
     
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
-}
+    return true; // Return true if all strings pass the test
+  }
 
+
+
+
+
+  
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
     (typeof process.versions.node !== 'undefined')) {
