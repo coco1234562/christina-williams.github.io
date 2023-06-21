@@ -33,37 +33,30 @@ function printArrayValuesInReverse(array) {
  * Given an input Object, return an Array containing the Object keys.
  */
 function getObjectKeys(object) {
-  // YOUR CODE BELOW HERE //
   
-  
-  
-  
-  // YOUR CODE ABOVE HERE //
-}
+  return Object.keys(object); 
+ 
+ }
+ 
 
 /** 
  * Given an input Object, loop over the Object and print its keys 
  * using console.log().
  */
 function printObjectKeys(object) {
-  // YOUR CODE BELOW HERE //
-  
-  
-  
-  
-  // YOUR CODE ABOVE HERE //
+
+  console.log(Object.keys(object));
+
 }
+
 
 /** 
  * Given an input Object, return an Array containing the Object's values.
  */
 function getObjectValues(object) {
-  // YOUR CODE BELOW HERE //
   
-  
-  
-  
-  // YOUR CODE ABOVE HERE //
+  return Object.values(object); 
+
 }
 
 /** 
@@ -71,12 +64,9 @@ function getObjectValues(object) {
  * using console.log().
  */
 function printObjectValues(object) {
-  // YOUR CODE BELOW HERE //
   
+  console.log(Object.values(object));
   
-  
-  
-  // YOUR CODE ABOVE HERE //
 }
 
 /** 
@@ -95,13 +85,21 @@ function getObjectLength(object) {
  * Given an input Object, how might we loop over the Object IN REVERSE and 
  * print its values using console.log()?
  */
+ 
 function printObjectValuesInReverse(object) {
-  // YOUR CODE BELOW HERE //
+  //Retrieve the keys of the object using Object.keys() method.
+  //Reverse the array of keys using the reverse() method.
+  var keys = Object.keys(object).reverse();
   
-  
-  
-  
-  // YOUR CODE ABOVE HERE //
+  //- Iterate over the reversed array of keys
+  keys.forEach((key) => {
+    
+    //Access the corresponding values from the object using the current key
+    var value = object[key];
+    
+    //print them using console.log().
+    console.log(value);
+  });
 }
 
 
