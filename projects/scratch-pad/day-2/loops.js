@@ -11,25 +11,22 @@
  * using console.log().
  */
 function printArrayValues(array) {
-  // YOUR CODE BELOW HERE //
-  
-  
-  
-  
-  // YOUR CODE ABOVE HERE //
+
+  for (let i = 0; i <= array.length; i++) {
+    console.log(array[i]);
+  }
 }
+
 
 /** 
  * Given an input Array, loop backwards over the Array and print its values 
  * using console.log().
  */
 function printArrayValuesInReverse(array) {
-  // YOUR CODE BELOW HERE //
-  
-  
-  
-  
-  // YOUR CODE ABOVE HERE //
+
+  for (let i = 0; i <= array.length - 1; i--) {
+    console.log(array[i]);
+  }
 }
 
 /** 

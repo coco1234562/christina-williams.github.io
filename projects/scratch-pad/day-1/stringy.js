@@ -13,35 +13,40 @@
  * work?
  */
 function length(string) {
-    // YOUR CODE BELOW HERE //
     
     return string.length; 
-
-    // YOUR CODE ABOVE HERE //
 }
+
+
 
 /**
  * Given an input String, return a new String forced to lowercase.
  */
 function toLowerCase(string) {
-    // YOUR CODE BELOW HERE //
 
     return string.toLowerCase();
 
-    // YOUR CODE ABOVE HERE //
 }
+
+
+
+
+
+
 
 /**
  * Given an input String, return a new String forced to uppercase.
  */
 function toUpperCase(string) {
-    // YOUR CODE BELOW HERE //
-    
+
     return string.toUpperCase();
-
-
-    // YOUR CODE ABOVE HERE //
 }
+
+
+
+
+
+
 
 /**
  * Given an input String, return a new String forced to dash-case.
@@ -49,20 +54,40 @@ function toUpperCase(string) {
  * Examples:
  *
  *      toDashCase('Hello World'); // => 'hello-world'
- *
- * TIP: How can you look for and replace a space in a String? How can you
- *      enforce lowercase? Look at the global replace link below, or, try String
- *      methods split and join?
- *
- *      See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Using_global_and_ignore_with_replace()
  */
-function toDashCase(string) {
-    // YOUR CODE BELOW HERE //
-
-
-
-    // YOUR CODE ABOVE HERE //
+ 
+ 
+ 
+function toDashCase(str) {
+  // Convert the string to lowercase and replace spaces with dashes
+  return str.toLowerCase().replace(/\s+/g, '-');
 }
+
+// Example usage
+console.log(toDashCase('Hello World')); // Output: 'hello-world'
+
+
+/*
+STEPS
+
+- lowercase using the toLowerCase() method.
+
+- replace() method with a regular expression (/\s+/g) to match one or more whitespace characters and replace them with a dash -. 
+
+    - \s means "one space", and \s+ means "one or more spaces".
+    
+    - /g flag (replace all occurrences)
+
+- The g flag in the regular expression ensures that all occurrences of whitespace are replaced.
+
+*/
+
+
+
+
+
+
+
 
 /**
  * Given an input String and a single character, return true if the String
@@ -76,13 +101,31 @@ function toDashCase(string) {
  * TIP: How can you use Array access to your advantage here? How can you
  *      ensure uppercase and lowercase can be compared equally?
  */
+ 
 function beginsWith(string, char) {
-    // YOUR CODE BELOW HERE //
-
-    
-
-    // YOUR CODE ABOVE HERE //
+  
+  return string.charAt(0).toLowerCase() === char.toLowerCase();
+  
 }
+
+
+
+/*
+STEPS:
+
+1. charAt(0) method to access the first character of the string.
+
+2. convert both the first character and the char argument to lowercase using the toLowerCase() method.
+
+3. compare the lowercase versions of both characters and return true if they are equal, indicating that the string begins with the given character. Otherwise, we return false.
+
+*/ 
+
+
+
+
+
+
 
 /**
  * Given an input String and a single character, return true if the String
@@ -97,12 +140,28 @@ function beginsWith(string, char) {
  *      ensure uppercase and lowercase can be compared equally?
  */
 function endsWith(string, char) {
-    // YOUR CODE BELOW HERE //
-
-
-
-    // YOUR CODE ABOVE HERE //
+  const lowercaseString = string.toLowerCase();
+  const lowercaseChar = char.toLowerCase();
+  const lastChar = lowercaseString[lowercaseString.length - 1];
+  return lastChar === lowercaseChar;
 }
+
+
+/* STEPS!!!
+
+
+Convert the input string and the character to lowercase (or uppercase) to make the comparison case-insensitive.
+
+Retrieve the last character of the converted string using array access.
+
+Compare the last character with the converted character using strict equality (===).
+
+Return true if they are equal, and false otherwise.
+
+*/ 
+
+
+
 
 /**
  * Given two input Strings, return the Strings concatenated into one.
@@ -110,12 +169,17 @@ function endsWith(string, char) {
  * TIP: What's the operator to concatenate two Strings?
  */
 function concat(stringOne, stringTwo) {
-    // YOUR CODE BELOW HERE //
-
-
-
-    // YOUR CODE ABOVE HERE //
+  return stringOne + stringTwo;
 }
+
+
+
+
+
+
+
+
+
 
 /**
  * Given any number of Strings, return all of them joined together.
@@ -128,12 +192,17 @@ function concat(stringOne, stringTwo) {
  *      in an Array called args.
  */
 function join(stringOne, stringTwo) {
-    // YOUR CODE BELOW HERE //
-    var args = Array.from(arguments);
-
-
-    // YOUR CODE ABOVE HERE //
+  var args = Array.from(arguments);
+  return args.join('');
 }
+
+
+
+
+
+
+
+
 
 /**
  * Given two Strings, return the longest of the two.
@@ -145,12 +214,18 @@ function join(stringOne, stringTwo) {
  * TIP: What property of the String do we need to compare?
  */
 function longest(stringOne, stringTwo) {
-    // YOUR CODE BELOW HERE //
-
-
-
-    // YOUR CODE ABOVE HERE //
+  if (stringOne.length >= stringTwo.length) {
+    return stringOne;
+  } else {
+    return stringTwo;
+  }
 }
+
+
+
+
+
+
 
 /**
  * Given two Strings, return 1 if the first is higher in alphabetical order than
@@ -160,12 +235,29 @@ function longest(stringOne, stringTwo) {
  * TIP: How can we compare Strings? Is 'a' greater than or less than 'b'?
  */
 function sortAscending(stringOne, stringTwo) {
-    // YOUR CODE BELOW HERE //
-
-
-
-    // YOUR CODE ABOVE HERE //
+   
+   return stringTwo.localeCompare(stringOne);
 }
+
+//1 if the first is higher in alphabetical order
+console.log(sortAscending('a','b'));  // 1 
+
+//-1 if the second is higher in alphabetical order
+console.log(sortAscending('b','a')); // - 1 
+
+
+/* STEPS:
+
+localeCompare() method. This method compares two strings and returns a negative number if the first string is sorted before the second string, a positive number if the second string is sorted before the first string, and 0 if they are equal.
+
+*/ 
+
+
+
+
+
+
+
 
 
 /**
@@ -176,13 +268,22 @@ function sortAscending(stringOne, stringTwo) {
  * TIP: How can we compare Strings? Is 'a' greater than or less than 'b'?
  */
 function sortDescending(stringOne, stringTwo) {
-    // YOUR CODE BELOW HERE //
 
+return stringOne.localeCompare(stringTwo);
 
-
-
-    // YOUR CODE ABOVE HERE //
 }
+
+//return -1 if the SECOND is lower in alphabetical order
+console.log(sortAscending('a','b')); // -1 
+
+//return 1 if the FIRST is lower in alphabetical order
+console.log(sortAscending('b','a')); // 1 
+
+
+
+
+
+
 
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
