@@ -33,11 +33,19 @@
  *          new-line character added after it!
  */
 
-// YOUR CODE GOES BELOW HERE //
+//Create a factory Function called makeContact(id, nameFirst, nameLast) 
 function makeContact(id, nameFirst, nameLast) {
 
-} 
-
+    //returns a contact object.
+    //{id: 1, nameFirst: 'Max', nameLast: 'Gaudin'};
+      return {
+          id: id,
+          nameFirst: nameFirst,
+          nameLast: nameLast
+      };
+  
+  } 
+  
 
 function makeContactList() {
     /*
