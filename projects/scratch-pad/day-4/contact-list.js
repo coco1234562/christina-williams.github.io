@@ -33,39 +33,67 @@
  *          new-line character added after it!
  */
 
-//Create a factory Function called makeContact(id, nameFirst, nameLast) 
+// Factory function to create a contact object
 function makeContact(id, nameFirst, nameLast) {
-
-    //returns a contact object.
-    //{id: 1, nameFirst: 'Max', nameLast: 'Gaudin'};
-      return {
-          id: id,
-          nameFirst: nameFirst,
-          nameLast: nameLast
-      };
-  
-  } 
-  
-
-function makeContactList() {
-    /*
-     * You need something here to hold contacts. See length api for a hint:
-     */
-    var contacts;
-    
     return {
-        // we implemented the length api for you //
-        length: function() {
-            return contacts.length;
+      id: id,
+      nameFirst: nameFirst,
+      nameLast: nameLast
+    };
+  }
+  
+  // Factory function to create a contact list object
+  function makeContactList() {
+    var contacts = [];
+  
+    return {
+      length: function() {
+        return contacts.length;
+      },
+      
+      
+      addContact: function(contact) {
+        contacts.push(contact);
+      },
+      
+    
+      
+      findContact: function(fullName) {
+        var foundContact = contacts.find(function(contact) {
+          return contact.nameFirst + ' ' + contact.nameLast === fullName;
+        });
+        return foundContact;
+      },
+      
+      
+      
+      
+      
+      removeContact: function(contact) {
+        var index = contacts.indexOf(contact);
+        if (index !== -1) {
+          contacts.splice(index, 1);
         }
-    }
-}
-
-
-
-
-// YOUR CODE GOES ABOVE HERE //
-
+      },
+      
+      
+      
+      
+      
+      
+      printAllContactNames: function() {
+        var names = contacts.map(function(contact) {
+          return contact.nameFirst + ' ' + contact.nameLast;
+        });
+        return names.join('\n');
+      }
+    };
+  }
+  
+  
+  
+  
+  
 
 
 
