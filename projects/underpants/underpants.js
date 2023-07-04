@@ -313,19 +313,18 @@ _.filter = function (array, func) {
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
 
-_.reject = function (arr, fun){
-  
-  var emptyVar = [];
-  
-  for(var i = 0; i < arr.length; i++){
-    //call the function; element, index, array
-    if(fun(arr[i], i, arr)){
-      //return new array of elements
-      emptyVar.push(arr[i]); 
+_.reject = function (array, func) {
+  var rejected = [];
+
+  for (var i = 0; i < array.length; i++) {
+    var element = array[i];
+
+    if (!func(element, i, array)) {
+      rejected.push(element);
     }
   }
-   
-   return emptyVar; 
+
+  return rejected;
 }
 
 
@@ -348,7 +347,23 @@ _.reject = function (arr, fun){
 *   }); -> [[2,4],[1,3,5]]
 }
 */
+_.partition = function (array, func) {
+  var truthyValues = [];
+  var falsyValues = [];
 
+  for (var i = 0; i < array.length; i++) {
+    var element = array[i];
+    var result = func(element, i, array);
+
+    if (result) {
+      truthyValues.push(element);
+    } else {
+      falsyValues.push(element);
+    }
+  }
+
+  return [truthyValues, falsyValues];
+}
 
 /** _.map
 * Arguments:
@@ -366,6 +381,27 @@ _.reject = function (arr, fun){
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+_.map = function (collection, func) {
+  var result = [];
+
+  if (Array.isArray(collection)) {
+    for (var i = 0; i < collection.length; i++) {
+      result.push(func(collection[i], i, collection));
+    }
+  } else if (typeof collection === 'object' && collection !== null) {
+    for (var key in collection) {
+      if (collection.hasOwnProperty(key)) {
+        result.push(func(collection[key], key, collection));
+      }
+    }
+  }
+
+  return result;
+}
+
+
+
+
 
 /** _.pluck
 * Arguments:
@@ -377,6 +413,13 @@ _.reject = function (arr, fun){
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+
+_.pluck = function (array, property) {
+  return _.map(array, function(obj) {
+    return obj[property];
+  });
+}
+
 
 
 /** _.every
@@ -400,6 +443,32 @@ _.reject = function (arr, fun){
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+_.every = function (collection, func) {
+  if (typeof func !== 'function') {
+    // If no function is provided, check if every element is truthy
+    return collection.every(Boolean);
+  }
+
+  if (Array.isArray(collection)) {
+    // If the collection is an array
+    for (var i = 0; i < collection.length; i++) {
+      if (!func(collection[i], i, collection)) {
+        return false;
+      }
+    }
+  } else if (typeof collection === 'object' && collection !== null) {
+    // If the collection is an object
+    for (var key in collection) {
+      if (collection.hasOwnProperty(key)) {
+        if (!func(collection[key], key, collection)) {
+          return false;
+        }
+      }
+    }
+  }
+
+  return true;
+}
 
 /** _.some
 * Arguments:
@@ -422,6 +491,38 @@ _.reject = function (arr, fun){
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+_.some = function (collection, func) {
+  if (typeof func !== 'function') {
+    // If no function is provided, check if at least one element is truthy
+    return collection.some(Boolean);
+  }
+
+  if (Array.isArray(collection)) {
+    // If the collection is an array
+    for (var i = 0; i < collection.length; i++) {
+      if (func(collection[i], i, collection)) {
+        return true;
+      }
+    }
+  } else if (typeof collection === 'object' && collection !== null) {
+    // If the collection is an object
+    for (var key in collection) {
+      if (collection.hasOwnProperty(key)) {
+        if (func(collection[key], key, collection)) {
+          return true;
+        }
+      }
+    }
+  }
+
+  return false;
+}
+
+
+
+
+
+
 
 /** _.reduce
 * Arguments:
@@ -442,6 +543,23 @@ _.reject = function (arr, fun){
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
+_.reduce = function (array, func, seed) {
+  var startIndex = 0;
+  var accumulator = seed;
+
+  if (seed === undefined) {
+    // If no seed is provided, use the first element as the seed and start from the second element
+    accumulator = array[0];
+    startIndex = 1;
+  }
+
+  for (var i = startIndex; i < array.length; i++) {
+    accumulator = func(accumulator, array[i], i);
+  }
+
+  return accumulator;
+}
+
 
 /** _.extend
 * Arguments:
@@ -457,6 +575,26 @@ _.reject = function (arr, fun){
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+
+
+_.extend = function (targetObj, ...sourceObjs) {
+  for (var i = 0; i < sourceObjs.length; i++) {
+    var sourceObj = sourceObjs[i];
+    for (var key in sourceObj) {
+      if (sourceObj.hasOwnProperty(key)) {
+        targetObj[key] = sourceObj[key];
+      }
+    }
+  }
+  return targetObj;
+}
+
+
+
+
+
+
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
