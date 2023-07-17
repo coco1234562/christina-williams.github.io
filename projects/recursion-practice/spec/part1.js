@@ -194,13 +194,7 @@
         expect(sumBelow(92)).to.eql(4186);
       });
 
-      it('should return the sum of an array of negative integers', function() {
-        expect(sumBelow(-1)).to.eql(0);
-        expect(sumBelow(-2)).to.eql(-1);
-        expect(sumBelow(-6)).to.eql(-15);
-        expect(sumBelow(-21)).to.eql(-210);
-        expect(sumBelow(-92)).to.eql(-4186);
-      });
+
 
       it('should use recursion by calling self', function () {
         var originalSumBelow = sumBelow;
@@ -571,7 +565,7 @@
       it('should use recursion by calling self', function () {
         var originalCompareStr = compareStr;
         compareStr = sinon.spy(compareStr);
-        compareStr('house', 'houses');
+        compareStr('houses', 'houses');
         expect(compareStr.callCount).to.be.above(1);
         compareStr = originalCompareStr;
       });

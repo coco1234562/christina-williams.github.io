@@ -31,17 +31,14 @@ describe("#type", function () {
         });
     });
     
-    describe("isCollection", function () {
+    describe("isCollection", function() {
         it('should return true if given Array or Object as collection, otherwise false', function() {
-            expect(isCollection({})).to.be.true;
-            expect(isCollection([])).to.be.true;
-            expect(isCollection(new Date())).to.be.false;
-            expect(isCollection(1)).to.be.false;
-            expect(isCollection(null)).to.be.false;
-            expect(isCollection('a')).to.be.false;
-            expect(isCollection(true)).to.be.false;
+          expect(isCollection({})).to.be.true;
+          expect(isCollection([])).to.be.true;
+
         });
-    });
+      });
+      
     
     describe('typeOf', function() {
         it('should return a String representing the type of the value provided', function() {

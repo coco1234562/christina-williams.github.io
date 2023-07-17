@@ -119,18 +119,9 @@ function isObject(value) {
  */
  
  
- 
- //WRONG ANSWER1!!
- 
- function isCollection(value) {
-  
-  return Array.isArray(value) || (typeof value === 'object');
+function isCollection(value) {
+  return Array.isArray(value) || (typeof value === 'object' && value !== null);
 }
-
-
-
-
-
 
 /**PROBLEM 4 
  * Given an input value, return the type of the value as a String
