@@ -39,6 +39,206 @@
     <main>
       <div class="content">
         <h1>Javascript</h1>
+
+            <h1>Variables</h1>
+    <p>What is a variable? A variable is a label that references a value like a number or string. Before using a variable, you need to declare it.</p>
+    <p>Variables are case sensitive. That means 'christina' and 'Christina' are different variables. Variable names can only contain letters, numbers, underscores, or dollar signs and cannot contain spaces. Also, variable names must begin with a letter, an underscore (_), or a dollar sign ($). Variable names cannot use reserved words.</p>
+
+    <h2>var</h2>
+    <p>Variables declared with 'var' have a function-level scope or a global scope if declared outside of any function. They are hoisted (var declaration is moved to the top of its scope during the compilation phase). They can be redeclared and reassigned. Oldest way.</p>
+
+    <pre>
+        // Using 'var':
+        var age = 25;
+    </pre>
+
+    <h2>How to assign a variable</h2>
+    <p>Once you have declared a variable, you can assign it using an equal sign (=) and a value.</p>
+
+    <pre>
+        var name = 'christina';
+    </pre>
+
+    <h2>let</h2>
+    <p>'let' allows you to declare block-scoped variables (ONLY accessible within the nearest enclosing block aka curly braces). It is NOT hoisted. Prevents redeclaration of the same variable.</p>
+
+    <pre>
+        let name = "John";
+        name = "Alice";
+    </pre>
+
+    <pre>
+        function example() {
+            let x = 10;
+            if (true) {
+                let x = 20; // This is a new x variable, independent of the outer one
+                console.log(x); // 20
+            }
+            console.log(x); // 10
+        }
+    </pre>
+
+    <h2>const</h2>
+    <p>'const' has block scope. It is used to declare variables meant to be constant (values cannot be reassigned). 'const' variables must be initialized when declared.</p>
+
+    <pre>
+        const PI = 3.14;
+    </pre>
+
+    <h2>Hoisting of a variable</h2>
+    <p>Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.</p>
+
+    <pre>
+        var greeter;
+        console.log(greeter); // greeter is undefined
+        greeter = "say hello"
+    </pre>
+
+    <h2>Data Types</h2>
+    <p>JavaScript has several built-in data types. They are organized into two groups: primitive types and composite types.</p>
+
+    <h3>Primitive Types</h3>
+    <p>Numbers, String, Boolean, Null, Undefined, and Symbol.</p>
+
+    <h2>Operators</h2>
+    <p>Operators perform operations on variables and values in JavaScript.</p>
+
+    <h3>Arithmetic operators (+, -, *, /)</h3>
+    <pre>
+        let x = 10;
+        let y = 5;
+        let sum = x + y; // Result: 15
+    </pre>
+
+    <h3>Comparison operators (==, !=, >, <, >=, <=)</h3>
+    <pre>
+        let a = 10;
+        let b = 5;
+        let isEqual = a === b; // Result: false
+    </pre>
+
+    <h3>Logical operators (&&, ||, !)</h3>
+    <pre>
+        let isRainy = true;
+        let hasUmbrella = true;
+        let takeUmbrella = isRainy && hasUmbrella; // Result: true
+    </pre>
+
+    <h2>String Manipulation</h2>
+    <p>String manipulation involves changing or combining strings in JavaScript.</p>
+
+    <h3>Concatenation</h3>
+    <pre>
+        let firstName = "John";
+        let lastName = "Doe";
+        let fullName = firstName + " " + lastName; // Result: "John Doe"
+    </pre>
+
+    <h3>String length</h3>
+    <pre>
+        let message = "Hello, World!";
+        let length = message.length; // Result: 13
+    </pre>
+
+    <h3>Substring</h3>
+    <pre>
+        let sentence = "The quick brown fox";
+        let substring = sentence.substring(4, 9); // Result: "quick"
+    </pre>
+
+    <h2>Control Flow</h2>
+    <p>Control flow allows you to make decisions in your code using 'if', 'else if', and 'else' statements.</p>
+
+    <h3>if statement</h3>
+    <pre>
+        let age = 18;
+        if (age >= 18) {
+            console.log("You are an adult.");
+        } else {
+            console.log("You are a minor.");
+        }
+    </pre>
+
+    <h3>else if statement</h3>
+    <pre>
+        let score = 85;
+        if (score >= 90) {
+            console.log("A");
+        } else if (score >= 80) {
+            console.log("B");
+        } else {
+            console.log("C");
+        }
+    </pre>
+
+    <h3>switch statement</h3>
+    <pre>
+        let day = "Monday";
+        switch (day) {
+            case "Monday":
+                console.log("Start of the workweek");
+                break;
+            case "Friday":
+                console.log("End of the workweek");
+                break;
+            default:
+                console.log("Regular workday");
+        }
+    </pre>
+
+    <h2>Loops</h2>
+    <p>Loops are used to repeatedly execute a block of code until a condition is met.</p>
+
+    <h3>for loop</h3>
+    <pre>
+        for (let i = 0; i < 5; i++) {
+            console.log(i); // Output: 0, 1, 2, 3, 4
+        }
+    </pre>
+
+    <h3>while loop</h3>
+    <pre>
+        let count = 1;
+        while (count <= 5) {
+            console.log(count); // Output: 1, 2, 3, 4, 5
+            count++;
+        }
+    </pre>
+
+    <h3>do-while loop</h3>
+    <pre>
+        let num = 1;
+        do {
+            console.log(num); // Output: 1
+            num++;
+        } while (num <= 0);
+    </pre>
+
+    <h2>Functions</h2>
+    <p>Functions are blocks of reusable code that can be called with arguments and return values.</p>
+
+    <h3>Function with parameters and a return value</h3>
+    <pre>
+        function addNumbers(a, b) {
+            return a + b;
+        }
+        let result = addNumbers(5, 10); // Result: 15
+    </pre>
+
+    <h3>Function without parameters</h3>
+    <pre>
+        function greet() {
+            console.log("Hello!");
+        }
+        greet(); // Output: "Hello!"
+    </pre>
+
+    <h3>Arrow function (ES6 syntax)</h3>
+    <pre>
+        const multiply = (a, b) => a * b;
+        let product = multiply(3, 4); // Result: 12
+    </pre>
+        
       </div>
     </main>
   </div>
