@@ -20,13 +20,17 @@ var age = 25;
 
 /**************** How to assign a variable **************
 *
-* Once you have declared a variable, you can assign it using a equal sign (=) and a value.
+* Once you have declared a variable, you can assign it using an equal sign (=) and a value.
 *********************************************************/
 
 
 var name = 'christina'; 
 
+var x = 10; // Declare and initialize a variable 'x' with the value 10
+console.log("Initial value of x:", x);
 
+x = 20; // Reassign the variable 'x' with the value 20
+console.log("Reassigned value of x:", x);
 
 
 /******************* let *********************
