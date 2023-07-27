@@ -1,6 +1,8 @@
 /**
  * Control Flow:
- * Control flow allows you to make decisions in your code using `if`, `else if`, and `else` statements.
+ * Control flow statements in JavaScript are used to control the flow of execution in a program. 
+ They allow you to make decisions, 
+ repeat code blocks, and create more dynamic and interactive programs. The main control flow statements in JavaScript are:
  * */
 
 
@@ -26,6 +28,9 @@ if (score >= 90) {
 
 
 //switch statement:
+/*
+The switch statement allows you to select one of many code blocks to be executed based on the value of an expression.
+*/
 let day = "Monday";
 switch (day) {
     case "Monday":
@@ -37,3 +42,14 @@ switch (day) {
     default:
         console.log("Regular workday");
 }
+
+//for else 
+let age = 15;
+
+if (age >= 18) {
+  console.log("You are an adult.");
+} else {
+  console.log("You are a minor.");
+}
+
+
