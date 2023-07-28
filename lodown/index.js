@@ -25,31 +25,24 @@ module.exports.each = each;
 
 
 /**
- * identify: Designed to loop over a collection, Array or Object, and applies the 
- * action Function to return value unchanged
+ * identity: Designed to loop over a collection, Array or Object, and applies the 
+ * action Function to return value unchanged.
  * 
- * @param {Array or Object} collection: 
- * @param {Function} action: 
+ * @param {*} value - The input value to be returned unchanged.
+ * @returns {*} The input value is unchanged.
  */
- 
-
-function identity (value){
+function identity(value) {
     return value; 
-    
 }
+
 
 
 /**
  * getType: Returns the type of the provided value.
  * 
- * @param {Array or Object} collection - The collection to check the type of.
- * @param {Function} action - An optional action to perform.
+ * @param {*} value - The value to check the type of.
  * @returns {string} The type of the value.
  */
-
-
-
-
 function getType(value) {
     if (Array.isArray(value)) {
         return "array";
@@ -59,6 +52,7 @@ function getType(value) {
         return typeof value;
     }
 }
+
 
 
 /**
@@ -116,13 +110,10 @@ function last (array, number) {
 /**
  * indexOf: Returns the index of the first occurrence of a value in an array.
  * 
- * @param {Array or Object} collection - The collection to search within.
+ * @param {Array} array - The array to search within.
  * @param {any} value - The value to search for.
  * @returns {number} The index of the first occurrence of the value, or -1 if not found.
  */
-
-
-
 function indexOf(array, value) {
     for (var i = 0; i < array.length; i++) {
         if (array[i] === value) {
@@ -132,18 +123,18 @@ function indexOf(array, value) {
     return -1;
 }
 
+
 /**
  * contains: Checks if a value exists in an array.
  * 
- * @param {Array or Object} collection - The collection to search within.
+ * @param {Array} array - The array to search within.
  * @param {any} value - The value to search for.
  * @returns {boolean} `true` if the value is found, `false` otherwise.
  */
-
-
 function contains(array, value) {
-    return array.includes(value) ? true : false;
+    return array.includes(value);
 }
+
 
 
 /**
@@ -171,10 +162,9 @@ function each(collection, func) {
 /**
  * unique: Returns an array containing only the unique elements from the given array.
  * 
- * @param {Array or Object} collection - The collection to extract unique elements from.
+ * @param {Array} array - The array to extract unique elements from.
  * @returns {Array} An array with only the unique elements.
  */
-
 function unique(array) {
     var uniqueArray = [];
     
@@ -191,13 +181,12 @@ function unique(array) {
 
 
 /**
- * filter: Filters elements from a collection based on a provided function.
+ * filter: Filters elements from an array based on a provided function.
  * 
- * @param {Array or Object} collection - The collection to filter.
- * @param {Function} func - The function used to filter the elements.
+ * @param {Array} array - The array to filter.
+ * @param {Function} func - The function used to filter the elements. It tests each value in the array one at a time and should return a boolean indicating whether the element should be included in the filtered result.
  * @returns {Array} An array containing the filtered elements.
  */
-
 function filter(array, func) {
     var filtered = [];
     
@@ -213,11 +202,12 @@ function filter(array, func) {
 }
 
 
+
 /**
- * reject: Filters elements from a collection based on a provided function, returning the elements that do not match the filter.
+ * reject: Filters elements from an array based on a provided function, returning the elements that do not match the filter.
  * 
- * @param {Array or Object} collection - The collection to filter.
- * @param {Function} func - The function used to filter the elements.
+ * @param {Array} array - The array to filter.
+ * @param {Function} func - The function used to filter the elements. It tests each value in the array one at a time and should return a boolean indicating whether the element should be rejected from the filtered result.
  * @returns {Array} An array containing the rejected elements.
  */
 function reject(array, func) {
@@ -235,11 +225,12 @@ function reject(array, func) {
 }
 
 
+
 /**
- * partition: Separates the elements of a collection into two arrays based on a provided function.
+ * partition: Separates the elements of an array into two arrays based on a provided function.
  * 
- * @param {Array or Object} collection - The collection to partition.
- * @param {Function} func - The function used to determine the partitioning.
+ * @param {Array} array - The array to partition.
+ * @param {Function} func - The function used to determine the partitioning. It tests each value in the array one at a time and should return a boolean indicating whether the element should be placed in the truthy or falsy partition.
  * @returns {Array} An array containing two arrays: one with the truthy values and another with the falsy values.
  */
 function partition(array, func) {
@@ -290,9 +281,9 @@ function map(collection, func) {
 
 
 /**
- * pluck: Extracts the value of a specified property from each element in a collection and returns an array of the extracted values.
+ * pluck: Extracts the value of a specified property from each element in an array and returns an array of the extracted values.
  * 
- * @param {Array or Object} collection - The collection to pluck values from.
+ * @param {Array} array - The array to pluck values from.
  * @param {string} property - The property to extract from each element.
  * @returns {Array} An array containing the extracted values.
  */
@@ -305,10 +296,10 @@ function pluck(array, property) {
 
 
 /**
- * every: Checks if every element in a collection satisfies a provided function.
+ * every: Checks if every element in an array satisfies a provided function.
  * 
- * @param {Array or Object} collection - The collection to check.
- * @param {Function} func - The function used to test each element.
+ * @param {Array} collection - The array to check.
+ * @param {Function} func - The function used to test each element. It tests each value in the array one at a time and should return a boolean indicating whether the element satisfies the condition.
  * @returns {boolean} `true` if every element satisfies the function, `false` otherwise.
  */
 function every(collection, func) {
@@ -341,14 +332,12 @@ function every(collection, func) {
 
 
 /**
- * some: Checks if at least one element in a collection satisfies a provided function.
+ * some: Checks if at least one element in an array satisfies a provided function.
  * 
- * @param {Array or Object} collection - The collection to check.
- * @param {Function} func - The function used to test each element.
+ * @param {Array} collection - The array to check.
+ * @param {Function} func - The function used to test each element. It tests each value in the array one at a time and should return a boolean indicating whether at least one element satisfies the condition.
  * @returns {boolean} `true` if at least one element satisfies the function, `false` otherwise.
  */
-
-
 function some(collection, func) {
     if (typeof func !== 'function') {
         return collection.some(Boolean);
@@ -373,15 +362,15 @@ function some(collection, func) {
     return false;
 }
 
+
 /**
- * reduce: Applies a function against an accumulator and each element in a collection to reduce it to a single value.
+ * reduce: Applies a function against an accumulator and each element in an array to reduce it to a single value.
  * 
- * @param {Array or Object} collection - The collection to reduce.
- * @param {Function} func - The function to execute on each element.
+ * @param {Array} array - The array to reduce.
+ * @param {Function} func - The function to execute on each element. It takes an accumulator, the current element, and the index as arguments and returns the updated accumulator value.
  * @param {*} seed - The initial value of the accumulator.
  * @returns {*} The reduced value.
  */
-
 function reduce(array, func, seed) {
     var startIndex = 0;
     var accumulator = seed;
