@@ -40,34 +40,44 @@
       <div class="content">
         <h1>Javascript</h1>
 
-            <h1>Variables</h1>
-    <p>What is a variable? A variable is a label that references a value like a number or string. Before using a variable, you need to declare it.</p>
-    <p>Variables are case sensitive. That means 'christina' and 'Christina' are different variables. Variable names can only contain letters, numbers, underscores, or dollar signs and cannot contain spaces. Also, variable names must begin with a letter, an underscore (_), or a dollar sign ($). Variable names cannot use reserved words.</p>
+    <h1>Variables</h1>
+    <p>
+        What is a variable? A variable is a label that references a value like a number or string. Before using a variable, you need to declare it.
+    </p>
+    <p>
+        Variables are case sensitive. That means 'christina' and 'Christina' are different variables. Variable names can only contain letters, numbers, underscores, or dollar signs and cannot contain spaces. Also, variable names must begin with a letter, an underscore (_), or a dollar sign ($). Variable names cannot use reserved words.
+    </p>
 
     <h2>var</h2>
-    <p>Variables declared with 'var' have a function-level scope or a global scope if declared outside of any function. They are hoisted (var declaration is moved to the top of its scope during the compilation phase). They can be redeclared and reassigned. Oldest way.</p>
-
-    <pre>
-        // Using 'var':
+    <p>
+        Variables declared with 'var' have a function-level scope or a global scope if declared outside of any function. They are hoisted (var declaration is moved to the top of its scope during compilation phase). They can be redeclared and reassigned. Oldest way.
+    </p>
+    <script>
+        // Using `var`:
         var age = 25;
-    </pre>
+    </script>
 
     <h2>How to assign a variable</h2>
-    <p>Once you have declared a variable, you can assign it using an equal sign (=) and a value.</p>
+    <p>
+        Once you have declared a variable, you can assign it using an equal sign (=) and a value.
+    </p>
+    <script>
+        var name = 'christina'; 
 
-    <pre>
-        var name = 'christina';
-    </pre>
+        var x = 10; // Declare and initialize a variable 'x' with the value 10
+        console.log("Initial value of x:", x);
+
+        x = 20; // Reassign the variable 'x' with the value 20
+        console.log("Reassigned value of x:", x);
+    </script>
 
     <h2>let</h2>
-    <p>'let' allows you to declare block-scoped variables (ONLY accessible within the nearest enclosing block aka curly braces). It is NOT hoisted. Prevents redeclaration of the same variable.</p>
-
-    <pre>
+    <p>
+        'let' allows you to declare block-scoped variables (ONLY accessible within the nearest enclosing block aka curly braces). It is NOT hoisted and prevents redeclaration of the same variable.
+    </p>
+    <script>
         let name = "John";
         name = "Alice";
-    </pre>
-
-    <pre>
         function example() {
             let x = 10;
             if (true) {
@@ -76,91 +86,434 @@
             }
             console.log(x); // 10
         }
-    </pre>
+    </script>
 
     <h2>const</h2>
-    <p>'const' has block scope. It is used to declare variables meant to be constant (values cannot be reassigned). 'const' variables must be initialized when declared.</p>
-
-    <pre>
+    <p>
+        'const' has block scope. It is used to declare variables meant to be constant (values can NOT be reassigned). 'const' variables must be initialized when declared.
+    </p>
+    <script>
         const PI = 3.14;
-    </pre>
+    </script>
 
     <h2>Hoisting of a variable</h2>
-    <p>Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.</p>
-
-    <pre>
+    <p>
+        Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution. So, var variables are hoisted to the top of their scope and initialized with a value of undefined.
+    </p>
+    <script>
         var greeter;
         console.log(greeter); // greeter is undefined
-        greeter = "say hello"
+        greeter = "say hello";
+    </script>
+
+    <h1>Operators</h1>
+    <p>
+        Operators perform operations on variables and values in JavaScript.
+    </p>
+
+    <h2>Assignment Operators</h2>
+    <pre>
+        let x = 10;
+
+        // Addition assignment
+        x += 5; // Equivalent to: x = x + 5; // x is now 15
+
+        // Subtraction assignment
+        x -= 3; // Equivalent to: x = x - 3; // x is now 12
+
+        // Multiplication assignment
+        x *= 2; // Equivalent to: x = x * 2; // x is now 24
+
+        // Division assignment
+        x /= 4; // Equivalent to: x = x / 4; // x is now 6
+
+        // Modulus assignment
+        x %= 5; // Equivalent to: x = x % 5; // x is now 1
     </pre>
 
-    <h2>Data Types</h2>
-    <p>JavaScript has several built-in data types. They are organized into two groups: primitive types and composite types.</p>
-
-    <h3>Primitive Types</h3>
-    <p>Numbers, String, Boolean, Null, Undefined, and Symbol.</p>
-
-    <h2>Operators</h2>
-    <p>Operators perform operations on variables and values in JavaScript.</p>
-
-    <h3>Arithmetic operators (+, -, *, /)</h3>
+    <h2>Arithmetic Operators (+, -, *, /)</h2>
     <pre>
         let x = 10;
         let y = 5;
         let sum = x + y; // Result: 15
+
+        let a = 10;
+        let b = 5;
+
+        // Addition
+        let sum = a + b; // 15
+
+        // Subtraction
+        let difference = a - b; // 5
+
+        // Multiplication
+        let product = a * b; // 50
+
+        // Division
+        let quotient = a / b; // 2
+
+        // Modulus (Remainder after division)
+        let remainder = a % b; // 0
     </pre>
 
-    <h3>Comparison operators (==, !=, >, <, >=, <=)</h3>
+    <h2>Comparison Operators (==, !=, >, <, >=, <=)</h2>
     <pre>
         let a = 10;
         let b = 5;
         let isEqual = a === b; // Result: false
+
+        let num1 = 10;
+        let num2 = 5;
+
+        // Equal to
+        let isEqual = num1 === num2; // false
+
+        // Not equal to
+        let isNotEqual = num1 !== num2; // true
+
+        // Greater than
+        let isGreater = num1 > num2; // true
+
+        // Less than
+        let isLess = num1 < num2; // false
+
+        // Greater than or equal to
+        let isGreaterOrEqual = num1 >= num2; // true
+
+        // Less than or equal to
+        let isLessOrEqual = num1 <= num2; // false
     </pre>
 
-    <h3>Logical operators (&&, ||, !)</h3>
+    <h2>Logical Operators (&&, ||, !)</h2>
     <pre>
         let isRainy = true;
         let hasUmbrella = true;
         let takeUmbrella = isRainy && hasUmbrella; // Result: true
+
+        let p = true;
+        let q = false;
+
+        // Logical AND
+        let resultAnd = p && q; // false
+
+        // Logical OR
+        let resultOr = p || q; // true
+
+        // Logical NOT (Unary Operator)
+        let resultNotP = !p; // false
+        let resultNotQ = !q; // true
     </pre>
 
-    <h2>String Manipulation</h2>
-    <p>String manipulation involves changing or combining strings in JavaScript.</p>
-
-    <h3>Concatenation</h3>
+    <h2>Unary Operators</h2>
     <pre>
-        let firstName = "John";
-        let lastName = "Doe";
-        let fullName = firstName + " " + lastName; // Result: "John Doe"
+        let x = 5;
+
+        // Unary plus (Converts its operand to a number)
+        let y = +x; // y is 5
+
+        // Unary minus (Negates its operand)
+        let z = -x; // z is -5
     </pre>
 
-    <h3>String length</h3>
+    <h2>Ternary Operator</h2>
     <pre>
+        let age = 18;
+
+        // Ternary Operator
+        let isAdult = age >= 18 ? "Adult" : "Minor";
+        console.log(isAdult); // "Adult"
+    </pre>
+
+
+
+  <h1>Loops</h1>
+              <script>
+        <!-- Loops: Loops are used to repeatedly execute a block of code until a condition is met. -->
+        
+        <!-- for loop: The for loop is used to execute a block of code repeatedly based on a specified condition. -->
+        <!-- It consists of three statements: Start statement, Stop statement, and Update statement. -->
+        const numbers = [1, 2, 3, 4, 5];
+
+        for (let i = 0; i < numbers.length; i++) {
+            console.log(numbers[i]);
+        }
+
+        <!-- backwards -->
+        for (let i = numbers.length - 1; i >= 0; i--) {
+            console.log(numbers[i]);
+        }
+
+        <!-- while loop: The while loop is used to execute a block of code repeatedly as long as a specified condition is true. -->
+        <!-- It will keep looping as long as the condition remains true and will stop when the condition becomes false. -->
+        let count = 1;
+        while (count <= 5) {
+            console.log(count);
+            count++;
+        }
+
+        <!-- do-while loop: The do-while loop is used to execute a block of code repeatedly at least once, -->
+        <!-- and then it will keep looping as long as a specified condition is true. -->
+        let num = 1;
+        do {
+            console.log(num); // Output: 1
+            num++;
+        } while (num <= 0);
+
+        <!-- for-in loop: The for-in loop is used to iterate over the enumerable properties of an object. -->
+        <!-- It is not recommended for iterating over arrays, as it may not guarantee the order of iteration, -->
+        <!-- and may also include inherited properties. It's better suited for objects. -->
+        const person = {
+            name: "John",
+            age: 30,
+            city: "New York"
+        };
+
+        for (let key in person) {
+            console.log(`${key}: ${person[key]}`);
+        }
+    </script>
+
+
+
+    <h1>Functions Example</h1>
+
+        /**
+         * Functions:
+         * Functions are blocks of reusable code that can be called with arguments and return values.
+         * 
+         */
+
+        // Function with parameters and a return value:
+        function addNumbers(a, b) {
+            return a + b;
+        }
+        let result = addNumbers(5, 10); // Result: 15
+
+        // Function without parameters:
+        function greet() {
+            console.log("Hello!");
+        }
+        greet(); // Output: "Hello!"
+
+        // Arrow function (ES6 syntax):
+        const multiply = (a, b) => a * b;
+        let product = multiply(3, 4); // Result: 12
+
+        /*
+        1. The two phases to using functions are: 
+           a) Function declaration: In this phase, we define the function with its name, parameters, and the code that it will execute when called.
+           b) Function invocation or execution: In this phase, we call or execute the function, passing any required arguments, and the code inside the function's body is executed.
+
+        2. The difference between a function's parameters and arguments passed to a function:
+           - Parameters: Parameters are placeholders or variables defined in the function's declaration that represent the values that the function expects to receive when it is called. They act as local variables within the function's scope.
+           - Arguments: Arguments are the actual values passed to the function when it is called. These values are assigned to the corresponding parameters in the function's declaration.
+        */
+
+        // Function declaration
+        function greet(name) {
+            console.log(`Hello, ${name}!`);
+        }
+
+        // Function Invocation or Execution:
+        greet("John");
+
+        // Difference between Parameters and Arguments:
+
+        // Parameters
+        /*
+        In this example, a and b are parameters defined in the function declaration for add. 
+        They act as placeholders for the values that the function expects to receive when called. 
+        Within the function body, a and b are treated as local variables.
+        */
+        function add(a, b) {
+            return a + b;
+        }
+
+        // Arguments
+        /*
+        In this example, 3 and 5 are arguments passed to the add function when it is called. 
+        These values are assigned to the parameters a and b inside the function. 
+        So, a becomes 3 and b becomes 5, and the function returns the sum of the two arguments, which is 8.
+        */
+        const result = add(3, 5);
+        console.log(result); // Output: 8
+
+        // 3. The syntax for a NAMED function:
+        function functionName(parameter1, parameter2) {
+            // Function code goes here
+        }
+
+        // 4. How to assign a function to a variable:
+        const myFunction = function(parameter1, parameter2) {
+            // Function code goes here
+        };
+
+        /*
+        5. Specifying inputs and outputs in functions:
+           - Inputs: Inputs or arguments are specified when calling the function. For example, if a function has parameters `x` and `y`, you would call it with `myFunction(10, 20)`, where `10` and `20` are the inputs passed to the function.
+           - Outputs: Functions can return a single value using the `return` statement. For example:
+        */
+        function addNumbers(a, b) {
+            return a + b;
+        }
+
+        /*
+        Scope:
+           Functions can access and modify variables in their parent or global scopes. However, variables declared within a function are not accessible outside the function's scope, which means the inverse is not true. Variables defined outside the function are accessible within the function (unless there are variables with the same name defined inside the function, which would create a new local scope).
+          
+          Closures:
+           Closures occur when a function "remembers" its lexical scope even when the function is executed outside that scope. This means that if a function returns another function or if an inner function is referenced and held in memory somewhere, it retains access to the variables and data in its outer function's scope. The outer function's scope becomes a part of the closure, allowing the inner function to access and use those variables even after the outer function has finished executing. This behavior enables data to persist within closures even if the original function has completed its execution.
+        */
+
+        // Closure example
+        function outerFunction() {
+            let outerVar = "I'm from the outer function";
+
+            function innerFunction() {
+                let innerVar = "I'm from the inner function";
+                console.log(outerVar); // Accessing the variable from the outer function (closure)
+                console.log(innerVar); // Accessing the variable from the inner function
+            }
+
+            return innerFunction;
+        }
+
+        const closureFunc = outerFunction();
+        closureFunc(); // This will log the values of outerVar and innerVar from the inner function
+
+        // Function returning function example
+        function greetGenerator(greeting) {
+            function greet(name) {
+                return `${greeting}, ${name}!`;
+            }
+
+            return greet;
+        }
+
+        const sayHello = greetGenerator("Hello");
+        const sayHi = greetGenerator("Hi");
+
+        console.log(sayHello("Alice")); // Output: "Hello, Alice!"
+        console.log(sayHi("Bob")); // Output: "Hi, Bob!"
+    </script>
+
+    <h1>Data Types in JavaScript</h1>
+    <script>
+        /******************* Data Types ****************/
+
+        /*
+        numbers, string, boolean, array, Object, Function, undefined, null, NaN, Infinity, -Infinity
+
+        JS is a dynamically typed language (variables can hold values of any type and data type can change).
+        JS has several built-in data types. They are organized into two groups: primitive types and composite types 
+        */
+
+        /*
+        In JavaScript, data types can be categorized into two main categories: simple (primitive) data types and complex (reference) data types.
+
+        Simple (Primitive) Data Types:
+        Simple data types in JavaScript are immutable, meaning their values cannot be changed after they are created. When you assign a simple data type to a variable or pass it as an argument to a function, a copy of its value is made.
+
+        The simple data types in JavaScript are:
+
+        Number: Represents numeric values, like integers and floating-point numbers.
+        String: Represents sequences of characters, enclosed in single or double quotes.
+        Boolean: Represents true or false values.
+        Null: Represents an intentional absence of any value.
+        Undefined: Represents a variable that has been declared but not assigned a value.
+        Symbol (ES6): Represents a unique and immutable value, often used as an identifier for object properties.
+        */
+
+        let age = 30; // Number
+        let name = "John"; // String
+        let isStudent = true; // Boolean
+        let job = null; // Null
+        let score; // Undefined
+        let id = Symbol("uniqueID"); // Symbol
+
+
+        //Number:
+        let num = 42;
+
+
+        //String:
         let message = "Hello, World!";
-        let length = message.length; // Result: 13
-    </pre>
 
-    <h3>Substring</h3>
-    <pre>
-        let sentence = "The quick brown fox";
-        let substring = sentence.substring(4, 9); // Result: "quick"
-    </pre>
 
-    <h2>Control Flow</h2>
-    <p>Control flow allows you to make decisions in your code using 'if', 'else if', and 'else' statements.</p>
+        //Boolean:
+        let isStudent = true;
 
-    <h3>if statement</h3>
-    <pre>
+
+        /*
+        Complex (Reference) Data Types:
+        Complex data types in JavaScript are mutable, meaning their values can be changed after they are created. 
+        When you assign a complex data type to a variable or pass it as an argument to a function, a reference to its location in 
+        memory is made, rather than creating a copy of its value.
+
+        The complex data types in JavaScript are:
+
+        Object: Represents a collection of key-value pairs (properties and methods).
+        Array: Represents an ordered list of elements, accessible by index.
+        Function: Represents a reusable block of code that can be invoked with arguments.
+        Date: Represents a specific date and time.
+        RegExp: Represents a regular expression, used for pattern matching.
+        */
+
+
+        let person = { name: "Alice", age: 25 }; // Object
+        let numbers = [1, 2, 3, 4, 5]; // Array
+        function greet() { console.log("Hello!"); } // Function
+        let today = new Date(); // Date
+        let pattern = /hello/g; // RegExp
+
+
+        /*
+        Copy by Value vs. Copy by Reference:
+
+        When dealing with variables and data types, it's essential to understand how copying works in JavaScript:
+
+        Copy by Value: Simple data types are copied by value. 
+        When you assign a simple data type to a variable or pass it as an argument to a function, a new copy of the value is created.
+
+        Copy by Reference: Complex data types are copied by reference. 
+        When you assign a complex data type to a variable or pass it as an argument to a function, a reference to the original data is created, 
+        and both the original and the new variable point to the same location in memory.
+        */
+
+        // Copy by Value (Simple Data Type)
+        let num1 = 10;
+        let num2 = num1; // num2 gets the value of num1
+
+        num2 = 20;
+        console.log(num1); // Output: 10 (num1 remains unchanged)
+        console.log(num2); // Output: 20
+
+        // Copy by Reference (Complex Data Type)
+        let arr1 = [1, 2, 3];
+        let arr2 = arr1; // arr2 gets a reference to arr1
+
+        arr2.push(4);
+        console.log(arr1); // Output: [1, 2, 3, 4] (both arr1 and arr2 point to the same array)
+        console.log(arr2); // Output: [1, 2, 3, 4]
+    </script>
+
+    <h1>Control Flow in JavaScript</h1>
+    <script>
+        /**
+         * Control Flow:
+         * Control flow statements in JavaScript are used to control the flow of execution in a program. 
+         * They allow you to make decisions, repeat code blocks, and create more dynamic and interactive programs. The main control flow statements in JavaScript are:
+         * */
+
+        // if statement:
         let age = 18;
         if (age >= 18) {
             console.log("You are an adult.");
         } else {
             console.log("You are a minor.");
         }
-    </pre>
 
-    <h3>else if statement</h3>
-    <pre>
+        // else if statement:
         let score = 85;
         if (score >= 90) {
             console.log("A");
@@ -169,10 +522,11 @@
         } else {
             console.log("C");
         }
-    </pre>
 
-    <h3>switch statement</h3>
-    <pre>
+        // switch statement:
+        /*
+        The switch statement allows you to select one of many code blocks to be executed based on the value of an expression.
+        */
         let day = "Monday";
         switch (day) {
             case "Monday":
@@ -184,103 +538,16 @@
             default:
                 console.log("Regular workday");
         }
-    </pre>
 
-    <h2>Loops</h2>
-    <p>Loops are used to repeatedly execute a block of code until a condition is met.</p>
+        // for else 
+        let age = 15;
 
-    <h3>for loop</h3>
-    <pre>
-        for (let i = 0; i < 5; i++) {
-            console.log(i); // Output: 0, 1, 2, 3, 4
+        if (age >= 18) {
+            console.log("You are an adult.");
+        } else {
+            console.log("You are a minor.");
         }
-    </pre>
-
-    <h3>while loop</h3>
-    <pre>
-        let count = 1;
-        while (count <= 5) {
-            console.log(count); // Output: 1, 2, 3, 4, 5
-            count++;
-        }
-    </pre>
-
-    <h3>do-while loop</h3>
-    <pre>
-        let num = 1;
-        do {
-            console.log(num); // Output: 1
-            num++;
-        } while (num <= 0);
-    </pre>
-
-    <h2>Functions</h2>
-    <p>Functions are blocks of reusable code that can be called with arguments and return values.</p>
-
-    <h3>Function with parameters and a return value</h3>
-    <pre>
-        function addNumbers(a, b) {
-            return a + b;
-        }
-        let result = addNumbers(5, 10); // Result: 15
-    </pre>
-
-    <h3>Function without parameters</h3>
-    <pre>
-        function greet() {
-            console.log("Hello!");
-        }
-        greet(); // Output: "Hello!"
-    </pre>
-
-    <h3>Arrow function (ES6 syntax)</h3>
-    <pre>
-        const multiply = (a, b) => a * b;
-        let product = multiply(3, 4); // Result: 12
-    </pre>
-
-        <h1>Functions</h1>
-    <ol>
-        <li>The two phases to using functions are:</li>
-        <ul>
-            <li>Function declaration: In this phase, we define the function with its name, parameters, and the code that it will execute when called.</li>
-            <li>Function invocation or execution: In this phase, we call or execute the function, passing any required arguments, and the code inside the function's body is executed.</li>
-        </ul>
-
-        <li>What's the difference between a function's parameters and arguments PASSED to a function?</li>
-        <p>Parameters are placeholders or variables defined in the function's declaration that represent the values that the function expects to receive when it is called. Arguments are the actual values passed to the function when it is called. These values are assigned to the corresponding parameters in the function's declaration.</p>
-
-        <li>What's the syntax for a NAMED function?</li>
-        <pre>
-            function functionName(parameter1, parameter2) {
-                // Function code goes here
-            }
-        </pre>
-
-        <li>How do we assign a function to a variable?</li>
-        <pre>
-            const myFunction = function(parameter1, parameter2) {
-                // Function code goes here
-            };
-        </pre>
-
-        <li>Functions can OPTIONALLY take inputs, and OPTIONALLY return a single value. How do we specify inputs, and how do we specify outputs?</li>
-        <p>Inputs (arguments) are specified when calling the function. For example, if a function has parameters `x` and `y`, you would call it with `myFunction(10, 20)`, where `10` and `20` are the inputs passed to the function.</p>
-        <p>Outputs are specified using the `return` statement within the function. For example:</p>
-        <pre>
-            function addNumbers(a, b) {
-                return a + b;
-            }
-        </pre>
-        <p>In this example, the function `addNumbers` takes two inputs `a` and `b`, and it returns their sum as the output.</p>
-
-        <li>Scope:</li>
-        <p>Functions can access and modify variables in their parent or global scopes. However, variables declared within a function are not accessible outside the function's scope, which means the inverse is not true. Variables defined outside the function are accessible within the function (unless there are variables with the same name defined inside the function, which would create a new local scope).</p>
-
-        <li>Closures:</li>
-        <p>Closures occur when a function "remembers" its lexical scope even when the function is executed outside that scope. This means that if a function returns another function or if an inner function is referenced and held in memory somewhere, it retains access to the variables and data in its outer function's scope. The outer function's scope becomes a part of the closure, allowing the inner function to access and use those variables even after the outer function has finished executing. This behavior enables data to persist within closures even if the original function has completed its execution.</p>
-
-
+    </script>
 
       
       </div>
